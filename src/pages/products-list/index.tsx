@@ -13,7 +13,7 @@ function ProductList() {
 
   return (
     <div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex align-content-stretch flex-wrap">
         {" "}
         {products.map((product) => (
           <ProductCard product={product} />
