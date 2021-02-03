@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../constants";
+import { ADD_TO_CART, VIEW_CART } from "../constants";
 
 const productReducer = (state:any = [], action:any) => {
     switch(action.type){
@@ -6,6 +6,10 @@ const productReducer = (state:any = [], action:any) => {
             return [
                 ...state, 
                 action.payload
+            ]
+        case VIEW_CART:
+            return [
+                ...state
             ]
         default:
             return state;
