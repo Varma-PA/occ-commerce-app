@@ -1,9 +1,13 @@
 import React from "react";
 import "./ProductCard.css";
+import { useDispatch } from 'react-redux'
+import { addToCart } from "../../actions";
 
 function ProductCard({ product }: any) {
+  const dispatch = useDispatch();
   function clickMeTest() {
-    console.log("Clicked hEre");
+    console.log("Clicked hEre => ", product);
+    dispatch(addToCart(product));
   }
 
   return (
