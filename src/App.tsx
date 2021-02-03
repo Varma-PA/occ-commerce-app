@@ -1,23 +1,20 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import ProductCard from './components/ProductCard/ProductCard';
-import { useEffect, useState } from 'react'
-
+import React from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProductList from "./pages/products-list";
+import CartPage from "./pages/cart-page";
 
 function App() {
-  const [products, setProducts] = useState([]);
-  useEffect(function() {
-    (async function getProducts() {
-      await fetch("https://fakestoreapi.com/products?limit=10")
-      .then(res => res.json()).then(res => setProducts(res));
-    })()
-  }, []);
-
   return (
     <div className="App">
-      <Header />
-      <div className="d-flex flex-wrap"> { products.map(product => <ProductCard  product={product}/>) } </div>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={ProductList} />
+          <Route exact path="/cart" component={CartPage} />
+        </Switch>
+      </Router>
     </div>
   );
 }
