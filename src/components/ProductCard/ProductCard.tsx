@@ -2,6 +2,9 @@ import React from 'react'
 import "./ProductCard.css"
 
 function ProductCard({ product }: any) {
+    function addToCart() : void{
+        console.log(product, "added");
+    }
 
     return (
         <div className="card shadow">
@@ -20,7 +23,9 @@ function ProductCard({ product }: any) {
                 <div className="mt-auto">
                     <div className="buy d-flex justify-content-between align-items-center">
                         <div className="price text-success"><h5 className="mt-4">{product.price}</h5></div>
-                        <a href="#" className="btn btn-danger mt-3"><i className="fa fa-shopping-cart"></i> Add to Cart</a>
+                        <button type="button" className="btn btn-danger mt-3" onClick={(e) => {
+                            e.preventDefault();
+                            console.log('clik')}}><i className="fa fa-shopping-cart"></i> Add to Cart</button>
                     </div>
                 </div>
             </div>
