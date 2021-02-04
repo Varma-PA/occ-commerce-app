@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { viewCart } from '../../actions';
-import CartProduct from '../CartProduct/CartProduct';
+import { removeFromCart, viewCart } from '../../actions';
+import './CartCard.css'
 
 function CartCard() {
     let cartProds: any = useSelector(state => state);
-
+    const dispatch = useDispatch();
+    function removeProduct(id: number){ 
+        console.log(id);
+        
+        dispatch(removeFromCart(id));
+    }
     return (
         <table className="table table-striped table-bordered">
             <thead>
@@ -19,7 +24,16 @@ function CartCard() {
                 </tr>
             </thead>
             <tbody>
-                {cartProds.productReducer.map((prod: any) => <CartProduct product={prod} />)}
+                {cartProds.productReducer.map((prod: any, index: any) => (
+                    <tr>
+                        <td><img className="cartProdImg" src={prod.image} /> </td>
+                        <td>{prod.title}</td>
+                        <td>{prod.category}</td>
+                        <td>{prod.description}</td>
+                        <td className="text-right">{prod.price} €</td>
+                        <td className="text-right"><button className="btn btn-sm btn-danger" onClick={() => removeProduct(index)} ><i className="fa fa-trash"></i> </button> </td>
+                    </tr>
+                ))}
                 <tr>
                     <td></td>
                     <td></td>

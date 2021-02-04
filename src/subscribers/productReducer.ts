@@ -1,4 +1,4 @@
-import { ADD_TO_CART, VIEW_CART } from "../constants";
+import { ADD_TO_CART, REMOVE_FROM_CART, VIEW_CART } from "../constants";
 
 const productReducer = (state:any = [], action:any) => {
     switch(action.type){
@@ -10,6 +10,11 @@ const productReducer = (state:any = [], action:any) => {
         case VIEW_CART:
             return [
                 ...state
+            ]
+        case REMOVE_FROM_CART:
+            return [
+                ...state.slice(0, action.payload),
+                ...state.slice(action.payload + 1)
             ]
         default:
             return state;

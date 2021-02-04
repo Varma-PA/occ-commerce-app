@@ -15,7 +15,7 @@ function ProductList() {
     <div>
       <div className="d-flex align-content-stretch flex-wrap">
         {" "}
-        {products.map((product: any) => (
+        { products.map((product: any) => (
           <ProductCard product={product} key={product.id} />
         ))}{" "}
       </div>

@@ -1,5 +1,7 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import CartCard from "../../components/CartCard/CartCard";
+
 
 function CartPage() {
   return (
@@ -12,10 +14,10 @@ function CartPage() {
         </div>
         <div className="col mb-2">
           <div className="row">
-            <div className="col-sm-12  col-md-6">
-              <button className="btn btn-block btn-light">Continue Shopping</button>
+            <div className="col-md-6">
+              <button className="btn btn-lg btn-block btn-primary" >Continue Shopping</button>
             </div>
-            <div className="col-sm-12 col-md-6 text-right">
+            <div className="col-md-6">
               <button className="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
             </div>
           </div>
